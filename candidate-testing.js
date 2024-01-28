@@ -6,12 +6,10 @@ const input = require ('readline-sync');
 
 // TODO 1.1b: Ask for candidate's name //
   function askForName() {
-    return input.question("Enter your name: ");
+    return input.question("Print your name: ");
   }
 // TODO 1.1c: Greet candidate using their name //
   // console.log("Greetings", candidateName);
-
-
 
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 // let question = "Who was the first American woman in space? ";
@@ -24,8 +22,8 @@ const input = require ('readline-sync');
 
     for (let i = 0; i < questions.length; i++) {
       console.log(`${i+1}) ${questions[i]}`);
-      let userAnswer = input.question("Your Answer: ").toLowerCase();
-      let correctAnswer = correctAnswers[i].toString().toLowerCase();
+      let userAnswer = input.question("Your Answer: ").toLowerCase().toUpperCase();
+      let correctAnswer = correctAnswers[i].toString().toLowerCase().toUpperCase();
 
       candidateAnswers.push(userAnswer);
       console.log(`Correct Answer: ${correctAnswers[i]}\n`);
@@ -33,20 +31,15 @@ const input = require ('readline-sync');
     return candidateAnswers;
   }
 
+  // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   //   if (candidateAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
   //     console.log("Correct!");
   //   } else {
   //     console.log("Incorrect. The correct answer is: " + correctAnswer);
   //   }
   // }
-  // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-
-  
   
 // TODO 2: modify your quiz app to ask 5 questions //
-//TODO: Variables for Part 2
-
-
 // function askQuestions(questions) {
 //   let candidateAnswers = [];
   // if (candidateAnswers.toLowerCase() == correctAnswers[i]){
@@ -62,9 +55,6 @@ const input = require ('readline-sync');
 
 //   return candidateAnswers;
 // }
-
-//3
-
 
 // let questions=0
 // let candidateAnswers=0
@@ -111,6 +101,7 @@ function runProgram() {
   //   console.log("You did not pass the quiz.");
   // }
 
+//TODO: Variables for Part 2
 let questions = ["Who was the first American woman in space? ",
                  "True or false: 5 kilometer == 5000 meters? ",
                  "(5 + 3)/2 * 10 = ? ",
