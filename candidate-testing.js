@@ -110,7 +110,6 @@ let questions = ["Who was the first American woman in space? ",
 ];
 let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"];
 
-runProgram();
 
 
 // ----------- Don't write any code or change any code below this line ---------- //
