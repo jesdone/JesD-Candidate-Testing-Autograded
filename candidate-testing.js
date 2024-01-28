@@ -24,10 +24,10 @@ const input = require ('readline-sync');
 
     for (let i = 0; i < questions.length; i++) {
       console.log(`${i+1}) ${questions[i]}`);
-      let candidateAnswer = input.question("Your Answer: ").toLowerCase();
+      let userAnswer = input.question("Your Answer: ").toLowerCase();
       let correctAnswer = correctAnswers[i].toString().toLowerCase();
 
-      candidateAnswers.push(candidateAnswer);
+      candidateAnswers.push(userAnswer);
       console.log(`Correct Answer: ${correctAnswers[i]}\n`);
     }
     return candidateAnswers;
@@ -72,26 +72,37 @@ const input = require ('readline-sync');
 
 function gradeQuiz(candidateAnswers, correctAnswers) {
   let correctAnswersCount = 0;
+  // const pointsPerQuestion = 20;
 
   for (let i = 0; i < candidateAnswers.length; i++) {
     if (candidateAnswers[i] === correctAnswers[i].toString().toLowerCase()) {
-      correctAnswersCount += 1;
+      correctAnswersCount += 20;
     }
   }
-  let grade = (correctAnswersCount / (questions.length)) * 100;
-  return grade;
+  return correctAnswersCount;
+  // let grade = (correctAnswersCount / (questions.length)) * 100;
+  // return grade;
 }
 
 
 function runProgram() {
   let candidateName = askForName();
   let candidateAnswers = askQuestions(questions, correctAnswers);
-  // let totalPoints = gradeQuiz(candidateAnswers);
-  let grade = gradeQuiz(candidateAnswers, correctAnswers);
+  let score = gradeQuiz(candidateAnswers, correctAnswers);
 
-  console.log(`>>> Overall Grade: ${grade}% (${correctAnswersCount} of ${questions.length} responses correct)<<<`);
+  console.log(`\nCandidate Name: ${candidateName}\n`);
+
+  for (let i = 0; i < questions.length; i++) {
+    console.log(`${i +1}) ${questions[i]}`);
+    console.log(`Your Answer: ${candidateAnswers[i]}`);
+    console.log(`Correct Answer: ${correctAnswers[i]}\n`);
+  }
+
+  let grade = (score / (questions.length * 20)) * 100;
+  console.log(`>>> Overall Grade: ${grade.toFixed(2)}% (${score} of ${questions.length * 20} points)<<<`);
   console.log(grade >= 80 ? ">>> Status: PASSED <<<" : ">>> Status: Failed <<<");
 }
+ // let totalPoints = gradeQuiz(candidateAnswers);
   // console.log("Greetings", candidateName, 'if your grade is 80 or above you have passed the Quiz, you grade is, ', grade);
   // console.log("your grade is: ", grade);
   // if (grade >= 80) {
@@ -106,12 +117,7 @@ let questions = ["Who was the first American woman in space? ",
                  "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ",
                  "What is the minimum crew size for the ISS? ",
 ];
-let correctAnswers = ["Sally Ride",
-                      "true",
-                      "40",
-                      "Trajectory",
-                      "3"
-];
+let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"];
 
 runProgram();
 
