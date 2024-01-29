@@ -38,13 +38,25 @@ function askQuestion() {
     input.question(question)
     return candidateAnswer;
 }
-
+function askQuestions(){
 // TODO 2: modify your quiz app to ask 5 questions //
+for (let i = 0; i < questions.length; i++) {
+  let answer = prompt(questions[i]);
+  candidateAnswers.push(answer);
+  for (let i = 0; i < correctAnswers.length; i++) {
+    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
+      console.log(`Question ${i + 1}: Correct!`);
+    } else {
+      console.log(`Question ${i + 1}: Incorrect. Correct answer: ${correctAnswers[i]}`);
+    }
+  }
+ }
+}
 
 
 function gradeQuiz(candidateAnswers) {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-if (candidateAnswers.toLowerCase().toUpperCase() === correctAnswers.toLowerCase().toUpperCase()){
+if (candidateAnswers.toLowerCase() === correctAnswers.toLowerCase()){
   console.log(`Correct! ${candidateAnswers} + ${correctAnswers}`);
 } else
   console.log(`Incorrect. ${candidateAnswers} The correct answer is ${correctAnswers}`);
@@ -52,7 +64,7 @@ if (candidateAnswers.toLowerCase().toUpperCase() === correctAnswers.toLowerCase(
 
   // let grade;  //TODO 3.2 use this variable to calculate the candidates score.
   let grade = ((correctAnswers * 20)/ questions.length) * 100;
-  console.log(`>>> Overall Grade: ${grade.toFixed(2)}% (${score} of ${questions.length * 20} points)<<<`);
+  console.log(`>>> Overall Grade: ${grade.toFixed(2)}% (${grade} of ${questions.length * 20} points)<<<`);
   console.log(grade >= 80 ? ">>> Status: PASSED <<<" : ">>> Status: Failed <<<");
   return grade;
 
