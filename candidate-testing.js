@@ -64,10 +64,11 @@ if (candidateAnswers.toLowerCase() === correctAnswers.toLowerCase()){
 
   // let grade;  //TODO 3.2 use this variable to calculate the candidates score.
   let grade = ((correctAnswers * 20)/ questions.length) * 100;
+
   console.log(`>>> Overall Grade: ${grade.toFixed(2)}% (${grade} of ${questions.length * 20} points)<<<`);
   console.log(grade >= 80 ? ">>> Status: PASSED <<<" : ">>> Status: Failed <<<");
-  return grade;
 
+  return grade;
 
 
 
