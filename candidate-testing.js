@@ -12,7 +12,7 @@ let candidateName = input.question("Enter your name: ");
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 let question  = input.question("Who was the first American woman in space? ");
 let correctAnswer = "Sally Ride";
-let candidateAnswer = (" ");
+let candidateAnswer = input.question("Enter your answer: ");
 
 //TODO: Variables for Part 2
 let questions = ["Who was the first American woman in space? ",
@@ -55,7 +55,7 @@ function gradeQuiz(candidateAnswers) {
     }
    
   // let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-  let grade = (correctCount) / (questions.length) * 100;
+  let grade = correctCount / questions.length * 100;
 
   console.log(`>>> Overall Grade: ${grade}% points)<<<`);
   console.log(grade >= 80 ? ">>> Status: PASSED <<<" : ">>> Status: Failed <<<");
@@ -69,7 +69,7 @@ function gradeQuiz(candidateAnswers) {
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-   console.log();
+  //  console.log();
   askQuestion();
   gradeQuiz(this.candidateAnswers);
 }
