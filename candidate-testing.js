@@ -35,36 +35,24 @@ function askForName() {
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-    input.question(question)
+    candidateAnswer = input.question(question);
     return candidateAnswer;
 }
 
-// TODO 2: modify your quiz app to ask 5 questions //
-
-
-
 function gradeQuiz(candidateAnswers) {
+  let correctCount = 0
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   for (let i = 0; i < questions.length; i++) {
-    let answer = prompt(questions[i]);
-    candidateAnswers.push(answer);
-    for (let i = 0; i < correctAnswers.length; i++) {
-      if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
+    let candidateAnswers = candidateAnswers[i];
+
+      if (candidateAnswers.toLowerCase() === correctAnswers[i].toLowerCase()) {
         console.log(`Question ${i + 1}: Correct!`);
+        correctCount++;
       } else {
         console.log(`Question ${i + 1}: Incorrect. Correct answer: ${correctAnswers[i]}`);
       }
     }
-   }
-  }
-
-
-  // if (candidateAnswers.toLowerCase() === correctAnswers.toLowerCase()){
-//   console.log(`Correct! ${candidateAnswers} + ${correctAnswers}`);
-// } else
-//   console.log(`Incorrect. ${candidateAnswers} The correct answer is ${correctAnswers}`);
-// }
-
+   
   // let grade;  //TODO 3.2 use this variable to calculate the candidates score.
   let grade = ((correctAnswers * 20)/ questions.length) * 100;
 
@@ -72,8 +60,7 @@ function gradeQuiz(candidateAnswers) {
   console.log(grade >= 80 ? ">>> Status: PASSED <<<" : ">>> Status: Failed <<<");
 
   return grade;
-
-
+  }
 
 // ----------- Don't write any code or change any code below this line ---------- //
 
@@ -98,4 +85,4 @@ module.exports = {
   runProgram: runProgram
 };
 
-/////////////////////////////////////////////////////////////End template from Phillip: can delete this before submiting
+
