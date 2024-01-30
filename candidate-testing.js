@@ -6,8 +6,8 @@
 const input = require('readline-sync');
 
 // TODO 1.1a: Define candidateName // 
-let candidateName = input.question("Print your name: ");
-  // console.log("Greetings", candidateName);
+let candidateName = input.question("Enter your name: ");
+  
 
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 let question  = input.question("Who was the first American woman in space? ");
@@ -29,8 +29,8 @@ let candidateAnswers = [ ];
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
-  input.question("Print your name: ");
-  return candidateName;
+  input.question(candidateName);
+  return "Greetings", candidateName;
 }
 
 function askQuestion() {
