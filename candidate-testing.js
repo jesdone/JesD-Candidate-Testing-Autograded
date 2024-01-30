@@ -63,6 +63,7 @@ function gradeQuiz(candidateAnswers) {
   return grade;
   }
 
+
 // ----------- Don't write any code or change any code below this line ---------- //
 
 function runProgram() {
