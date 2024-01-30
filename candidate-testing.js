@@ -35,7 +35,7 @@ function askForName() {
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-    candidateAnswer = input.question(question);
+    candidateAnswer = input.question("Who was the first American woman in space? ");
     return candidateAnswer;
 }
 
@@ -43,9 +43,9 @@ function gradeQuiz(candidateAnswers) {
   let correctCount = 0
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   for (let i = 0; i < questions.length; i++) {
-    let candidateAnswers = candidateAnswers[i];
+    let answer = candidateAnswers[i];
 
-      if (candidateAnswers.toLowerCase() === correctAnswers[i].toLowerCase()) {
+      if (answer.toLowerCase() === correctAnswers[i].toLowerCase()) {
         console.log(`Question ${i + 1}: Correct!`);
         correctCount++;
       } else {
@@ -54,7 +54,7 @@ function gradeQuiz(candidateAnswers) {
     }
    
   // let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-  let grade = ((correctAnswers * 20)/ questions.length) * 100;
+  let grade = (correctAnswers) / (questions.length) * 100;
 
   console.log(`>>> Overall Grade: ${grade.toFixed(2)}% (${grade} of ${questions.length * 20} points)<<<`);
   console.log(grade >= 80 ? ">>> Status: PASSED <<<" : ">>> Status: Failed <<<");
